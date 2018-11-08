@@ -43,17 +43,20 @@ def copy_paths(paths_to_copy, dest_dir):
 
 def zippy(paths, zippath):
     a = os.path.abspath(zippath)
-    if not os.path.exists(os.path.dirname(a)):
-        print("oh no!")
-        print("zip error, could not create output at: " + zippath)
-        return
     for file in paths:
         cmd = "zip -j " + zippath + " " + file
+    if not os.path.exists(os.path.dirname(a)):
+        print("oh no!")
+        print("zip error: no file at: " + zippath)
+        print('failed command: ' + cmd)
+        return
         print(cmd)
         (status, _) = commands.getstatusoutput(cmd)
-        if status != 0:
-            print("oh no - couldn't do it!")
-            return
+    if status != 0:
+        print("oh no!")
+        print("zip error: oh no - couldn't do it!")
+        print('failed command: ' + cmd)
+        return
 
 
 def create_parser():
