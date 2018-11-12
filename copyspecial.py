@@ -6,7 +6,6 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
-import sys
 import re
 import os
 import shutil
@@ -24,7 +23,9 @@ def get_special_paths(dir):
     path = os.path.abspath(dir)
     files_list = os.listdir(path)
     special_paths = []
-    # instructions say in all the directories, but there is only one directory currently do you mean do the os.path.walk?, or do you mean in the directory i indicate??
+    # instructions say in all the directories, but there is only one directory
+    # currently do you mean do the os.path.walk?, or do you mean in the
+    #  directory i indicate??
     for file in files_list:
         if re.search(r'__(\w+)__', file):
             special_paths.append(os.path.abspath(file))
@@ -86,7 +87,8 @@ def main():
     # TODO you must write your own code to get the cmdline args.
     # Read the docs and examples for the argparse module about how to do this.
     # Parsing command line arguments is a must-have skill.
-    # This is input data validation.  If something is wrong (or missing) with any
+    # This is input data validation.  If something is wrong (or missing)
+    #  with any
     # required args, the general rule is to print a usage message and exit(1).
     # shutil.copy('./staw_hat_random_owl.jpg', 'path')
     # +++your code here+++
